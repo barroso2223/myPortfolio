@@ -1,0 +1,684 @@
+/* Root Seetings | root variables for easy editing and consistency */
+
+:root {
+  --color-primary: rgb(7, 133, 250);
+  --color-secondary: rgb(241, 29, 118);
+  --color-dark: black;
+  --color-light: white;
+  --color-grey: rgb(209, 206, 206);
+  --color-modal-bg: rgba(0, 0, 0, 0.9);
+
+  --font-main: "poppins", Arial, sans-serif;
+
+  --fs-h1: clamp(2.5rem, 8vw, 3rem);
+  --fs-h2: clamp(1.75rem, 6vw, 2.25rem);
+  --fs-h3: clamp(1.25rem, 4vw, 1.75rem);
+  --fs-h4: clamp(1rem, 4vw, 1.5rem);
+  --fs-p: clamp(0.75rem, 3vw, 1rem);
+  --fs-a: clamp(0.75rem, 3vw, 1.5rem);
+  --fs-footer: clamp(0.75rem, 2vw, 1rem);
+
+  --boxShadow-start: 2px 2px 5px;
+  --boxShadow-hover: 5px 5px 15px;
+
+  --border-radius: 8px;
+}
+
+/* Global Settings */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  max-width: 70vw;
+}
+
+h4 {
+  font-size: var(--fs-h4);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: var(--fs-p);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-size: var(--fs-a);
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+hr {
+  width: 90%;
+  height: 1px;
+  border: none;
+  background: var(--color-grey);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 3rem;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+/* Section Settings */
+
+/* Header/Navigation Settings */
+
+.navBar {
+  width: 100%;
+  min-height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  padding: 0 40px;
+  background-color: var(--color-light);
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+
+.navBarLogo {
+  display: flex;
+  justify-content: start;
+  text-decoration: none;
+  color: var(--color-dark);
+  width: 25%;
+}
+
+.navBarLogo:hover {
+  color: var(--color-secondary);
+}
+
+.navBarLogo img {
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+.navBarUL {
+  display: flex;
+  width: 75%;
+  justify-content: flex-end;
+  gap: clamp(20px, 5vw, 40px);
+  width: 100%;
+}
+
+.navItem {
+  list-style: none;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+  transform: scale(2);
+}
+
+/* Main Settings */
+
+main {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+}
+
+/* Hero Section Settings */
+
+#hero {
+  padding-top: 75px;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "myImgContainer sidebar"
+    "article          sidebar";
+  grid-template-columns: 3fr 1fr;
+  align-content: center;
+  grid-template-rows: min-content min-content;
+  row-gap: 0px;
+  background-color: var(--color-grey);
+}
+
+.myImgContainer {
+  grid-area: myImgContainer;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.myImgContainer {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-dark);
+  padding: 5px;
+  background-color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--boxShadow-start);
+  margin: auto;
+}
+
+.myImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(90%);
+  transform: scale(2);
+  transform-origin: center 30%;
+  border-radius: 50%;
+}
+
+.mainHeader {
+  margin-top: 0;
+}
+
+article {
+  grid-area: article;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 20px;
+  gap: 20px;
+}
+
+article h3 {
+  margin-top: 0;
+  text-align: center;
+  max-width: 80%;
+  font-size: var(--fs-h3);
+  font-weight: normal;
+}
+
+/* Sidebar Settings */
+
+.sidebar {
+  min-height: 90vh;
+  grid-area: sidebar;
+  border-left: 1px solid var(--color-dark);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 40px;
+  gap: 20px;
+}
+
+.heroLinksCard {
+  max-width: 300px;
+  height: fit-content;
+  border: 1px solid var(--color-light);
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--boxShadow-start);
+}
+
+.contactLinks,
+.vwcLinks {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.contactLinks a,
+.vwcLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  min-width: 45px;
+  min-height: 45px;
+  box-shadow: var(--boxShadow-start);
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.contactLinks a {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.vwcLinks a {
+  border: 1px solid red;
+  color: red;
+}
+.contactLinks a:hover,
+.vwcLinks a:hover {
+  color: var(--color-light);
+  transform: scale(1.1);
+}
+
+/* About Section Settings */
+
+#about {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.bioSection {
+  margin-bottom: 4rem;
+  max-width: 1000px; /* Keeps line length readable for long paragraphs */
+  text-align: center;
+}
+
+.technicalProof {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.modContainer {
+  width: 100%;
+  max-width: 1500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.mod {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+}
+.modGrid {
+  width: 100%;
+  max-width: 650px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  justify-items: center;
+  padding: 10px;
+  gap: 20px;
+}
+
+.modCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 300px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: var(--boxShadow-start);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.modCard:hover {
+  box-shadow: var(--boxShadow-hover);
+  transform: scale(1.05);
+}
+
+.modImage {
+  height: 200px;
+}
+
+.modImage img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.modText {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 100px;
+  width: 100%;
+  border-top: 1px solid var(--color-dark);
+  background-color: var(--color-grey);
+  padding: 5px;
+  gap: 5px;
+}
+
+.modText h4,
+.modText p {
+  padding: 0;
+  margin: 0;
+}
+
+/* Contact Section Settings */
+
+#contact {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-grey);
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px;
+  margin: auto;
+}
+
+form {
+  border: 1px solid var(--color-dark);
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--boxShadow-start);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.contactForm {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.formHeader {
+  text-align: center;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid var(--color-grey);
+  border-radius: 4px;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--boxShadow-start);
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: var(--color-secondary);
+}
+
+.contactInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  padding: 0;
+}
+
+.contactInfo a {
+  color: var(--color-primary);
+}
+
+.contactInfo a:hover {
+  color: var(--color-secondary);
+}
+
+/* Footer Section Settings */
+
+#footer {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.footerContainer {
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  padding: 20px;
+  flex-wrap: wrap;
+  width: 100vw;
+  gap: 20px;
+  top: 0;
+}
+
+.footerCols {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 300px;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerCols a {
+  font-size: var(--fs-footer);
+  color: var(--color-dark);
+}
+
+.footerCols a:hover {
+  color: var(--color-secondary);
+}
+
+.footerHeader {
+  text-decoration: underline;
+}
+
+.footerCols p {
+  font-size: var(--fs-footer);
+}
+
+.footerLower {
+  font-size: var(--fs-footer);
+  padding: 10px;
+  text-align: center;
+}
+
+/* Modal Settings */
+
+/* Screenshot Modal for about section */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-modal-bg);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalContent {
+  margin: auto;
+  display: block;
+  width: auto;
+  max-width: 90%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 3px solid var(--color-light);
+}
+
+#closeModal {
+  align-self: center;
+  min-width: 120px;
+}
+
+/* Form submission Thank You Modal  */
+
+/* Success Modal Styling */
+.modalOverlay {
+  display: none; /* Hidden by default - JS turns this to 'flex' */
+  position: fixed;
+  z-index: 3000; /* Higher than Nav (999) and Image Modal (2000) */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Dim the background */
+  justify-content: center;
+  align-items: center;
+}
+
+.modalOverlay.show {
+  display: flex;
+}
+
+.modalFormContent {
+  background-color: var(--color-light);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--boxShadow-hover);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalFormContent h2 {
+  color: var(--color-primary);
+  margin-top: 0;
+}
+
+#closeThankYou {
+  align-self: center;
+  min-width: 120px;
+}
+
+/* Media Query */
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 120px;
+  }
+
+  #hero {
+    grid-template-areas:
+      "myImgContainer"
+      "article";
+    grid-template-columns: 1fr;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navBar {
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .navBarUL {
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
